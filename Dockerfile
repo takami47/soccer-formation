@@ -4,8 +4,8 @@ WORKDIR /app
 
 COPY . .
 
-RUN chmod +x mvnw
+RUN chmod +x gradlew
 
-RUN ./mvnw clean package -DskipTests
+RUN ./gradlew clean build -x test
 
-CMD ["sh", "-c", "java -jar target/*.jar"]
+CMD ["sh", "-c", "java -jar build/libs/*.jar"]
